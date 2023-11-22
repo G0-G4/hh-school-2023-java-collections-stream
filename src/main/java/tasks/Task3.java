@@ -1,8 +1,9 @@
 package tasks;
 
 import common.Person;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /*
 Задача 3
@@ -11,11 +12,6 @@ import java.util.*;
 public class Task3 {
 
   public static List<Person> sort(Collection<Person> persons) {
-    ArrayList<Person> sortedPersons = new ArrayList<>(persons);
-    sortedPersons.sort(Comparator
-        .comparing(Person::getFirstName)
-        .thenComparing(Person::getSecondName)
-        .thenComparing(Person::getCreatedAt));
-    return sortedPersons;
+    return new ArrayList<>(persons);
   }
 }
