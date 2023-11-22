@@ -43,11 +43,11 @@ public class Task8 {
   }
 
   public Map<Integer, String> getPersonNames(Collection<Person> persons) {
-    return persons.stream().collect(Collectors.toMap(Person::getId, this::convertPersonToString));
+    return persons.stream().collect(Collectors.toMap(Person::getId, this::convertPersonToString, (a, b) -> a));
   }
 
   public boolean hasSamePersons(Collection<Person> persons1, Collection<Person> persons2) {
-    return !Collections.disjoint(persons1, persons2);
+    return !Collections.disjoint(new HashSet<>(persons1), persons2);
   }
 
   public long countEven(Stream<Integer> numbers) {
