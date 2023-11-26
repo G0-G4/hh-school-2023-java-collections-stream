@@ -27,19 +27,9 @@ public class Task8 {
   }
 
   public String convertPersonToString(Person person) {
-    String result = "";
-    if (person.getSecondName() != null) {
-      result += person.getSecondName();
-    }
-
-    if (person.getFirstName() != null) {
-      result += " " + person.getFirstName();
-    }
-
-    if (person.getMiddleName() != null) {
-      result += " " + person.getMiddleName();
-    }
-    return result;
+    return Stream.of(person.getSecondName(), person.getFirstName(), person.getMiddleName())
+        .filter(Objects::nonNull)
+        .collect(Collectors.joining(" "));
   }
 
   public Map<Integer, String> getPersonNames(Collection<Person> persons) {
